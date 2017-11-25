@@ -1,4 +1,4 @@
-#!/home/inv/Prjs/CanSite/cenv/bin/python
+#!/home/inv/Site/GRMSite/cenv/bin/python
 
 import sys
 import getopt

@@ -19,7 +19,22 @@
                 target: "map",
                 layers: [OSMlayer],
                 view: View
-            })  
+            })
+            
+            var data = undefined;
+            fetch('data').then(
+            function(response){
+                if (response.status !== 200){
+                    alert('Looks like there was a problem. Status Code: ' + response.status);
+                    return;
+                }
+                response.json().then(function(pack) {  
+                data = pack;
+                });
+                })
+            .catch(function(err){alert('Fetch Error :-S',err);
+            });
+            alert(data)
         </script>
     <body>
 </html>
