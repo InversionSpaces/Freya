@@ -4,6 +4,9 @@
     </head>
     <body>
         <div id="map" style="width: 1000px; height: 800px;"></div>
+        <div style="display:none">
+            <a id="marker">marker</a>
+        </div>
         <script src="ol/ol.js"></script>
         <script>
             var OSMlayer = new ol.layer.Tile({
@@ -21,20 +24,30 @@
                 view: View
             })
             
-            var data = undefined;
+            
+            var data;
             fetch('data').then(
             function(response){
                 if (response.status !== 200){
                     alert('Looks like there was a problem. Status Code: ' + response.status);
                     return;
                 }
-                response.json().then(function(pack) {  
+                response.json().then(function(pack){
                 data = pack;
                 });
                 })
             .catch(function(err){alert('Fetch Error :-S',err);
             });
-            alert(data)
+            
+            while(!data){}
+            
+            
+            var pos = ol.proj.fromLonLat(data.features[0].geometry.coordinates);
+            var marker = new ol.Overlay({
+                position: pos,
+                element:document.getElemenetById("marker")
+            })
+            map.addOverlay(marker)
         </script>
     <body>
 </html>

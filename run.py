@@ -1,5 +1,6 @@
-from flask import Flask, render_template
-    
+from flask import Flask, render_template, jsonify
+import json
+
 app = Flask(__name__)
 
 @app.route("/ol/ol.js")
@@ -14,6 +15,6 @@ def index():
 @app.route("/data")
 def data():
     with open("geoex.json") as f:
-        return f.read()
+        return jsonify(json.load(f))
 
 app.run()
