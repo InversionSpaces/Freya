@@ -3,13 +3,7 @@ var OSMlayer = new ol.layer.Tile({
 });
 
 var CanLayer = new ol.layer.Vector({
-    style: new ol.style.Style({
-                image: new ol.style.Circle({
-                    radius: 5,
-                    fill: new ol.style.Fill({color: 'green'}),
-                    stroke: new ol.style.Stroke({color: 'red', width: 1})
-                })
-            })
+    style: CanStyle
 });
 
 var View = new ol.View({
@@ -22,3 +16,5 @@ var Map = new ol.Map({
     layers: [OSMlayer, CanLayer],
     view: View
 });
+
+checker();
