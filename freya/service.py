@@ -9,5 +9,5 @@ __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file
 
 @app.route("/data")
 def data():
-    with open(os.path.join(__location__, "../geoex.json")) as f:
+    with open(os.path.join(__location__, "../data/geoex.json")) as f:
         return jsonify(json.load(f))

@@ -1,7 +1,7 @@
 { "type": "FeatureCollection",
     "features": [
       { "type": "Feature",
-        "geometry": {"type": "Point", "coordinates": [40, 10]},
+        "geometry": {"type": "Point", "coordinates": [4, 10]},
         "properties": {"name": "marker"}
         }
        ]
